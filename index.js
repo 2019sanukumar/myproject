@@ -10,8 +10,8 @@ app.use(express.static('./assets'));
 app.use(expresslayouts);
 
 
-app.set('layout extractStyles',true);
-app.set('layout extractScript',true);
+app.set('layout extractStyles',true);//extract style from sub pages into thr layouts
+app.set('layout extractScripts',true);
 
 
 
