@@ -2,21 +2,25 @@
 const User=require('../models/user');
 module.exports.profile=function(req,res)
 {
-    return res.end('<h1> user profile</h1>');
+    return res.render('profile',{
+        title:'users profile'
+    })
     
 };
-
+//render the sign up page
 module.exports.signup=function(req,res)
 {
-    return res.render('user_signup',{
-        title:"sign up"
-
-    })
+    if(req.isAuthenticated()){
+        res.redirect('/users/profile')
+    }
 }
 
 //rendrer the sign in page
 module.exports.signin=function(req,res)
 {
+    if(req.isAuthenticated()){
+        res.redirect('/users/profile')
+    }
     return res.render('user_signin',{
         title:"sign in"
 
@@ -61,5 +65,11 @@ module.exports.create=function(req,res)
 
 module.exports.createSession=function(req,res)
 {
+    return res.redirect('/');
     
+}
+module.exports.destroySession=function(req,res)
+{
+    req.logout();
+    return res.redirect('/');
 }
