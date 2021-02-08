@@ -13,6 +13,10 @@ module.exports.signup=function(req,res)
     if(req.isAuthenticated()){
         res.redirect('/users/profile')
     }
+    return res.render('user_signup',{
+        title:"sign up"
+
+    });
 }
 
 //rendrer the sign in page
