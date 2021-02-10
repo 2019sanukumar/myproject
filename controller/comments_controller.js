@@ -14,7 +14,7 @@ module.exports.create=function(req,res)
             Comment.create({
                 content:req.body.content,
                 post:req.body.post,
-                user:req.use._id
+                user:req.user._id
 
             },function(err,comment)
             {
@@ -25,7 +25,7 @@ module.exports.create=function(req,res)
                 res.redirect('/');
 
             });
-        }
+        }   
     })
     
 
